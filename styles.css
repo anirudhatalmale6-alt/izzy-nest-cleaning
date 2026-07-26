@@ -59,7 +59,7 @@ section{position:relative}
 /* Header */
 .header{position:sticky;top:0;z-index:50;background:rgba(253,247,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--cream-2)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:.5rem 0}
-.brand-logo{height:56px;width:auto;border-radius:10px}
+.brand-logo{height:82px;width:auto;border-radius:12px}
 .nav{display:flex;align-items:center;gap:1.6rem}
 .nav a{font-size:.95rem;font-weight:500;color:var(--ink);transition:color .2s}
 .nav a:hover{color:var(--rose-deep)}
@@ -259,6 +259,7 @@ section{position:relative}
   .estimate{align-items:center}
   .trust-inner{grid-template-columns:1fr 1fr;gap:1.4rem}
   .fab{display:inline-block}
+  .brand-logo{height:64px}
   .topbar-item{display:none}
   .topbar-inner{justify-content:center}
 }

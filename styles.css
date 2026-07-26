@@ -131,6 +131,20 @@ section{position:relative}
 .plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--rose),var(--rose-deep));
   color:#fff;padding:.3rem 1.1rem;border-radius:999px;font-size:.75rem;font-weight:600;letter-spacing:.05em}
 
+/* Regular price table */
+.price-table-wrap{max-width:820px;margin:0 auto;overflow-x:auto}
+.price-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(201,154,78,.14)}
+.price-table th,.price-table td{padding:1rem 1.1rem;text-align:center;font-size:.95rem}
+.price-table thead th{background:linear-gradient(135deg,var(--rose-deep),var(--rose));color:#fff;font-family:'Poppins';font-weight:600}
+.price-table thead th:first-child{text-align:left}
+.price-table th span{display:block;font-size:.68rem;font-weight:400;opacity:.9;letter-spacing:.05em}
+.price-table tbody td{border-bottom:1px solid var(--cream-2)}
+.price-table tbody td:first-child{text-align:left;font-weight:600;color:var(--ink)}
+.price-table tbody tr:last-child td{border-bottom:none}
+.price-table tbody tr:nth-child(even){background:var(--cream)}
+.price-table td.best{color:var(--rose-deep);font-weight:700;background:var(--rose-soft)}
+.price-table-note{text-align:center;color:var(--muted);font-size:.88rem;margin-top:1rem;font-style:italic}
+
 /* Reviews */
 .reviews{grid-template-columns:repeat(3,1fr)}
 .review{padding:1.9rem 1.7rem}

@@ -145,8 +145,30 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Simple Pricing</span>
-      <h2>Choose Your Cleaning Package</h2>
-      <p>Three clear packages, no surprises. Prices start from the amounts below — final quote confirmed on your booking.</p>
+      <h2>Regular Cleaning Prices</h2>
+      <p>Our regular cleans are priced by home size and how often we visit. Weekly is our best value — send your postcode &amp; property size for an exact quote.</p>
+    </div>
+
+    <div class="price-table-wrap">
+      <table class="price-table">
+        <thead>
+          <tr><th>Property size</th><th>Weekly <span>best value</span></th><th>Fortnightly</th><th>Monthly</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1 Bedroom</td><td class="best">£40</td><td>£45</td><td>£50</td></tr>
+          <tr><td>2 Bedrooms</td><td class="best">£55</td><td>£60</td><td>£65</td></tr>
+          <tr><td>3 Bedrooms</td><td class="best">£70</td><td>£75</td><td>£80</td></tr>
+          <tr><td>4 Bedrooms</td><td class="best">£90</td><td>£95</td><td>£100</td></tr>
+          <tr><td>5 Bedrooms</td><td class="best">£110</td><td>£120</td><td>£130</td></tr>
+        </tbody>
+      </table>
+      <p class="price-table-note">Every regular clean includes dusting, vacuuming, mopping, kitchen cleaning, bathroom cleaning and general tidying.</p>
+    </div>
+
+    <div class="section-head" style="margin-top:3.5rem">
+      <span class="eyebrow">Go Deeper</span>
+      <h2>One-Off Deep Cleans</h2>
+      <p>Need a one-time top-to-bottom clean? Choose a package below — perfect for spring cleans, move-in/out or before an event.</p>
     </div>
     <div class="grid pricing">
       <article class="card plan">
@@ -199,7 +221,7 @@
         <a href="#book" class="btn btn-block">Book Gold</a>
       </article>
     </div>
-    <p class="reviews-note">Recurring cleans save you money — Weekly 10% off, Fortnightly 5% off. Add extras like oven, fridge or ironing at checkout.</p>
+    <p class="reviews-note">Add extras like oven, fridge, ironing or window cleaning to any package at checkout.</p>
   </div>
 </section>
 
@@ -250,28 +272,35 @@
       </div>
 
       <form id="bookForm" novalidate>
-        <!-- Step 1: Package -->
+        <!-- Step 1: Choose your clean -->
         <div class="wiz-step" data-step="0">
-          <h3 class="wiz-h">Choose your cleaning package</h3>
+          <h3 class="wiz-h">Choose your clean</h3>
           <div class="pack-choices">
             <label class="pack">
-              <input type="radio" name="package" value="Bronze Clean (from £45)" data-price="45" required />
+              <input type="radio" name="package" value="Regular Clean" data-type="regular" required />
               <span class="pack-inner">
-                <span class="pack-top"><strong>🥉 Bronze</strong><em>from £45</em></span>
-                <span class="pack-desc">Dusting, vacuum, mop, kitchen, bathroom, mirrors, bins</span>
+                <span class="pack-top"><strong>🔁 Regular Clean</strong><em>from £40</em></span>
+                <span class="pack-desc">Recurring clean priced by home size &amp; how often — best value weekly. Dusting, vacuum, mop, kitchen, bathroom, tidy.</span>
               </span>
             </label>
             <label class="pack">
-              <input type="radio" name="package" value="Silver Clean (from £95)" data-price="95" />
+              <input type="radio" name="package" value="Bronze One-Off (£45)" data-type="oneoff" data-price="45" />
               <span class="pack-inner">
-                <span class="pack-top"><strong>🥈 Silver</strong><em>from £95</em></span>
+                <span class="pack-top"><strong>🥉 Bronze — One-Off</strong><em>from £45</em></span>
+                <span class="pack-desc">Single fresh &amp; tidy clean — kitchen, bathroom, mirrors, bins</span>
+              </span>
+            </label>
+            <label class="pack">
+              <input type="radio" name="package" value="Silver One-Off (£95)" data-type="oneoff" data-price="95" />
+              <span class="pack-inner">
+                <span class="pack-top"><strong>🥈 Silver — One-Off</strong><em>from £95</em></span>
                 <span class="pack-desc">Bronze + skirting, doors, sills, limescale, splashbacks</span>
               </span>
             </label>
             <label class="pack">
-              <input type="radio" name="package" value="Gold Clean (from £180)" data-price="180" />
+              <input type="radio" name="package" value="Gold One-Off (£180)" data-type="oneoff" data-price="180" />
               <span class="pack-inner">
-                <span class="pack-top"><strong>🥇 Gold</strong><em>from £180</em></span>
+                <span class="pack-top"><strong>🥇 Gold — One-Off</strong><em>from £180</em></span>
                 <span class="pack-desc">Silver + inside oven, fridge, cupboards, full sanitisation</span>
               </span>
             </label>
@@ -294,15 +323,10 @@
           </div>
         </div>
 
-        <!-- Step 3: Frequency -->
+        <!-- Step 3: Frequency (rendered by JS based on chosen clean) -->
         <div class="wiz-step" data-step="2" hidden>
-          <h3 class="wiz-h">How often would you like your clean?</h3>
-          <div class="freq-choices">
-            <label class="freq"><input type="radio" name="frequency" value="One-Off Clean" data-disc="0" required /><span><strong>One-Off Clean</strong><em>No commitment</em></span></label>
-            <label class="freq"><input type="radio" name="frequency" value="Weekly" data-disc="0.10" /><span><strong>Weekly</strong><em>10% discount</em></span></label>
-            <label class="freq"><input type="radio" name="frequency" value="Fortnightly" data-disc="0.05" /><span><strong>Fortnightly</strong><em>5% discount</em></span></label>
-            <label class="freq"><input type="radio" name="frequency" value="Monthly" data-disc="0" /><span><strong>Monthly</strong><em>Great value</em></span></label>
-          </div>
+          <h3 class="wiz-h" id="freqHeading">How often would you like your clean?</h3>
+          <div class="freq-choices" id="freqChoices"></div>
         </div>
 
         <!-- Step 4: Property details -->

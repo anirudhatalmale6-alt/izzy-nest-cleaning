@@ -260,6 +260,9 @@ section{position:relative}
   .estimate{align-items:center}
   .trust-inner{grid-template-columns:1fr 1fr;gap:1.4rem}
   .fab{display:inline-block}
+  .topbar{font-size:.7rem}
+  .topbar-contact{flex-direction:column;align-items:center;gap:.25rem}
+  .topbar-contact a{white-space:nowrap}
   .header-inner{flex-direction:row;justify-content:space-between;align-items:center;gap:.5rem}
   .brand{width:auto}
   .brand-logo{height:120px}

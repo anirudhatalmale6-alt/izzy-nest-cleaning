@@ -60,7 +60,7 @@ section{position:relative}
 .header{position:sticky;top:0;z-index:50;background:rgba(253,247,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--cream-2)}
 .header-inner{display:flex;flex-direction:column;align-items:center;gap:.55rem;padding:.7rem 0}
 .brand{display:flex;justify-content:center;width:100%}
-.brand-logo{height:120px;width:auto;border-radius:12px}
+.brand-logo{height:170px;width:auto;max-width:100%;border-radius:14px}
 .nav{display:flex;align-items:center;justify-content:center;gap:1.8rem}
 .nav a{font-size:.95rem;font-weight:500;color:var(--ink);transition:color .2s}
 .nav a:hover{color:var(--rose-deep)}
@@ -262,7 +262,7 @@ section{position:relative}
   .fab{display:inline-block}
   .header-inner{flex-direction:row;justify-content:space-between;align-items:center;gap:.5rem}
   .brand{width:auto}
-  .brand-logo{height:78px}
+  .brand-logo{height:120px}
   .topbar-item{display:none}
   .topbar-inner{justify-content:center}
 }

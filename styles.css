@@ -75,6 +75,7 @@ section{position:relative}
 .hero h1{font-size:clamp(2.3rem,5.2vw,3.8rem);color:#fff;margin-bottom:1rem}
 .hero p{font-size:1.12rem;color:#f6e7e2;max-width:540px;margin-bottom:1.8rem}
 .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-area{margin-top:1rem;font-size:1rem;font-weight:500;color:var(--gold-soft)}
 .hero-badges{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:2.2rem;font-size:.9rem;color:#fbeee9}
 
 /* Trust strip */
@@ -231,6 +232,7 @@ section{position:relative}
 .footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;padding-bottom:2.5rem}
 .footer-brand img{height:66px;border-radius:10px;margin-bottom:1rem}
 .footer-brand p{color:#c9b1ab;max-width:280px}
+.footer-area{color:var(--gold-soft);font-weight:500;margin-top:.6rem}
 .footer-col h4{color:#fff;margin-bottom:1rem;font-size:1.05rem}
 .footer-col a{display:block;color:#d9c2bc;margin-bottom:.6rem;font-size:.92rem;transition:color .2s}
 .footer-col a:hover{color:var(--gold-soft)}

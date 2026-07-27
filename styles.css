@@ -289,6 +289,7 @@ section[id],div[id].trust,#book{scroll-margin-top:200px}
 .footer-col a{display:block;color:#d9c2bc;margin-bottom:.6rem;font-size:.92rem;transition:color .2s}
 .footer-col a:hover{color:var(--gold-soft)}
 .footer-pay{color:#e9d8d2;font-size:.9rem;margin-top:1rem;border-top:1px solid rgba(255,255,255,.1);padding-top:1rem}
+.footer-hours{color:#d9c2bc;font-size:.92rem;margin-bottom:.5rem}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:1.2rem 0;font-size:.82rem;color:#b39a94;text-align:center}
 
 /* Floating action button (mobile) */

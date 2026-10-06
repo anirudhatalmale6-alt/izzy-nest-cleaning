@@ -16,6 +16,7 @@ if (form) {
   const backBtn = document.getElementById('wizBack');
   const nextBtn = document.getElementById('wizNext');
   const submitBtn = document.getElementById('wizSubmit');
+  const whatsBtn = document.getElementById('wizWhats');
   const note = document.getElementById('formNote');
   const estimateEl = document.getElementById('estimate');
   const estimateNote = document.getElementById('estimateNote');
@@ -72,6 +73,7 @@ if (form) {
     backBtn.hidden = i === 0;
     nextBtn.hidden = i === steps.length - 1;
     submitBtn.hidden = i !== steps.length - 1;
+    if (whatsBtn) whatsBtn.hidden = i !== steps.length - 1;
     current = i;
     note.textContent = '';
   }
@@ -147,6 +149,43 @@ if (form) {
   });
 
   backBtn.addEventListener('click', () => showStep(Math.max(current - 1, 0)));
+
+  function bookingPayload() {
+    const data = new FormData(form);
+    const extras = data.getAll('extras');
+    return {
+      Package: data.get('package'),
+      Extras: extras.length ? extras.join(', ') : 'None',
+      Frequency: data.get('frequency'),
+      Bedrooms: data.get('bedrooms'),
+      Bathrooms: data.get('bathrooms'),
+      Pets: data.get('pets'),
+      Parking: data.get('parking'),
+      'Special requirements': data.get('requirements') || '\u2014',
+      Name: data.get('name'),
+      Phone: data.get('phone'),
+      Email: data.get('email'),
+      'Property address': data.get('address'),
+      'Preferred date': data.get('date') || 'Flexible',
+      'Preferred time': data.get('time') || 'Flexible',
+      'Estimated total': estimateEl.textContent,
+    };
+  }
+
+  if (whatsBtn) {
+    whatsBtn.addEventListener('click', () => {
+      const bad = validStep(current);
+      if (bad) { note.textContent = 'Please complete your name, phone, email and address.'; return; }
+      const p = bookingPayload();
+      const lines = ['Hi Izzy Nest, I\'d like to book a clean please:', ''];
+      Object.keys(p).forEach(function (k) {
+        if (p[k]) lines.push(k + ': ' + p[k]);
+      });
+      window.open('https://wa.me/447388582981?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+      note.classList.add('ok');
+      note.textContent = 'Opening WhatsApp with your booking details\u2026';
+    });
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();

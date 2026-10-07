@@ -329,3 +329,6 @@ section[id],div[id].trust,#book{scroll-margin-top:200px}
   .topbar-item{display:none}
   .topbar-inner{justify-content:center}
 }
+
+/* Gallery show-all toggle */
+.gallery-more{text-align:center;margin-top:1.2rem}

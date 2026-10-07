@@ -237,3 +237,18 @@ if (form) {
   showStep(0);
   calcEstimate();
 }
+
+// Gallery: reveal the rest of the photos
+(function () {
+  var btn = document.getElementById('galleryToggle');
+  if (!btn) return;
+  var extras = document.querySelectorAll('.gallery-extra');
+  if (!extras.length) { btn.hidden = true; return; }
+  var shown = false;
+  btn.addEventListener('click', function () {
+    shown = !shown;
+    for (var i = 0; i < extras.length; i++) extras[i].hidden = !shown;
+    btn.textContent = shown ? 'Show fewer photos' : 'Show all 37 photos';
+    if (!shown) document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+  });
+})();
